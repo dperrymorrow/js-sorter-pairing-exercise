@@ -3,23 +3,23 @@
 
 test("not duplicating the tr elements", function () {
   sorter($('#table'), 'num_key', 'DESC');
-  ok($('#table tr').length, 5);
+  equal($('#table tr').length, 5);
 });
 
 test("sorting by numeric data key", 2, function() {
   sorter($('#table'), 'num_key', 'DESC');
-  ok($('#table tr').first().data('num_key'), 1);
+  equal($('#table tr').first().data('num_key'), 1);
     
   sorter($('#table'), 'num_key', 'ASC');
-  ok($('#table tr').first().data('num_key'), 5);
+  equal($('#table tr').first().data('num_key'), 5);
 });
 
 test("sorting ASC and desc on strings", 2, function() {
   sorter($('#table'), 'str_key', 'ASC' );
-  ok( $('#table tr').first().data('str_key'), 'Watermelon');
+  equal( $('#table tr').first().data('str_key'), 'Watermelon');
   
   sorter($('#table'), 'str_key', 'DESC');
-  ok( $('#table tr').first().data('str_key'), 'Apples');
+  equal( $('#table tr').first().data('str_key'), 'Apples');
 });
 
 ////////////////// BONUS ROUND /////////////////////
