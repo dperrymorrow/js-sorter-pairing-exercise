@@ -26,11 +26,11 @@ test("sorting ASC and desc on strings", 2, function() {
 
 test("sorting ASC and desc on strings", 3, function() {
   sorter($('#table'), 'text', 'ASC' );
-  ok($('#table tr').first().text(), 'Watermelon');
+  equal($('#table tr').first().text(), 'Watermelon');
   
   sorter($('#table'), 'text', 'DESC');
-  ok( $('#table tr').first().text(), 'Apples');
+  equal( $('#table tr').first().text(), 'Apples');
 
   sorter($('#table'));
-  ok( $('#table tr').first().text(), 'Apples');
+  equal( $('#table tr').first().text(), 'Apples');
 });
