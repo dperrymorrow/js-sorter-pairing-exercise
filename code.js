@@ -15,10 +15,10 @@ function sorter($table, sortOn, direction) {
     values.push($(this).data(sortOn));
   });
   // sort the values asc or desc
-  values = (direction === 'DESC') ? values.sort() : values.sort().reverse();
+  values = (direction === 'ASC') ? values.sort() : values.sort().reverse();
   // move the tr elements to match the values array
   for (var i = 0; i < values.length; i++) {
     var $tr = $table.find('tr[data-' + sortOn + '=' + values[i] + ']');
-    $table.append($tr);
+    $table.prepend($tr);
   }
 }
