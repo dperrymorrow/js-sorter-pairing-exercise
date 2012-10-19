@@ -2,35 +2,32 @@
 /*jslint browser: true, white: true, vars: true, devel: true, bitwise: true, debug: true, nomen: true, sloppy: true, indent: 2*/
 
 test("not duplicating the tr elements", function () {
-  sorter($('#table'), 'num_key', 'DESC');
+  sorter($('#table'), 'num', 'DESC');
   equal($('#table tr').length, 5);
 });
 
 test("sorting by numeric data key", 2, function() {
-  sorter($('#table'), 'num_key', 'DESC');
-  equal($('#table tr').first().data('num_key'), 1);
+  sorter($('#table'), 'num', 'DESC');
+  equal($('#table tr').first().data('num'), 1);
     
-  sorter($('#table'), 'num_key', 'ASC');
-  equal($('#table tr').first().data('num_key'), 5);
+  sorter($('#table'), 'num', 'ASC');
+  equal($('#table tr').first().data('num'), 5);
 });
 
 test("sorting ASC and desc on strings", 2, function() {
-  sorter($('#table'), 'str_key', 'ASC' );
-  equal( $('#table tr').first().data('str_key'), 'Watermelon');
+  sorter($('#table'), 'str', 'ASC' );
+  equal( $('#table tr').first().data('str'), 'Watermelon');
   
-  sorter($('#table'), 'str_key', 'DESC');
-  equal( $('#table tr').first().data('str_key'), 'Apples');
+  sorter($('#table'), 'str', 'DESC');
+  equal( $('#table tr').first().data('str'), 'Apples');
 });
 
 ////////////////// BONUS ROUND /////////////////////
 
-test("sorting ASC and desc on strings", 3, function() {
-  sorter($('#table'), 'text', 'ASC' );
-  equal($('#table tr').first().text(), 'Watermelon');
-  
-  sorter($('#table'), 'text', 'DESC');
-  equal( $('#table tr').first().text(), 'Apples');
+test("takes lowercase for direction, and defaults to DESC", 2, function() {
+  sorter($('#table'), 'str', 'desc');
+  equal( $('#table tr').first().data('str'), 'Apples');
 
-  sorter($('#table'));
-  equal( $('#table tr').first().text(), 'Apples');
+  sorter($('#table'), 'num');
+  equal( $('#table tr').first().data('num'), 5);
 });
