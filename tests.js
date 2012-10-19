@@ -6,28 +6,34 @@ test("not duplicating the tr elements", function () {
   equal($('#table tr').length, 5);
 });
 
-test("sorting by numeric data key", 2, function() {
+test("sorting numeric DESC", function () {
   sorter($('#table'), 'num', 'DESC');
   equal($('#table tr').first().data('num'), 1);
-    
+});
+
+test("sorting numeric ASC", function () {
   sorter($('#table'), 'num', 'ASC');
   equal($('#table tr').first().data('num'), 5);
 });
 
-test("sorting ASC and desc on strings", 2, function() {
+test("sorting string ASC", function () {
   sorter($('#table'), 'str', 'ASC' );
   equal( $('#table tr').first().data('str'), 'Watermelon');
-  
+});
+
+test("soring string DESC", function () {
   sorter($('#table'), 'str', 'DESC');
   equal( $('#table tr').first().data('str'), 'Apples');
 });
 
 ////////////////// BONUS ROUND /////////////////////
 
-test("takes lowercase for direction, and defaults to DESC", 2, function() {
+test("takes lowercase for direction", function () {
   sorter($('#table'), 'str', 'desc');
   equal( $('#table tr').first().data('str'), 'Apples');
+});
 
+test("defaults to ASC", function () {
   sorter($('#table'), 'num');
   equal( $('#table tr').first().data('num'), 5);
 });
