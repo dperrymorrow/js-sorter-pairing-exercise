@@ -21,7 +21,7 @@ test("sorting string ASC", function () {
   equal( $('#table tr').first().data('str'), 'Watermelon');
 });
 
-test("soring string DESC", function () {
+test("sorting string DESC", function () {
   sorter($('#table'), 'str', 'DESC');
   equal( $('#table tr').first().data('str'), 'Apples');
 });
